@@ -122,8 +122,8 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
     <div className="space-y-6">
       {showHeading && !result && (
         <h1 className="text-3xl font-bold text-center mb-8 text-gray-800 tracking-wide">
-          Twitter Category 
-          <span className="block text-[#FF69B4] mt-1">Analyzer ♡</span>
+          Valentino 
+          <span className="block text-[#FF69B4] mt-1">Guru ♡</span>
         </h1>
       )}
       <form onSubmit={handleSubmit} className="space-y-4">
@@ -168,7 +168,7 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
               <span>Analyzing...</span>
             </>
           ) : (
-            'Analyze Profile'
+            'Test Me'
           )}
         </button>
       </form>
