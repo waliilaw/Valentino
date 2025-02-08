@@ -143,7 +143,7 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
               id="username"
               value={username}
               onChange={(e) => setUsername(e.target.value.replace('@', ''))}
-              className="w-full pl-8 pr-4 py-2 border border-[#FFB7C5] rounded-md focus:ring-2 focus:ring-[#FF69B4] focus:border-[#FF69B4] transition-all duration-200"
+              className="w-full pl-8 pr-4 py-2 border border-[#FFB7C5] rounded-md focus:ring-2 focus:ring-[#FF69B4] focus:border-[#FF69B4] transition-all duration-200 text-gray-900"
               placeholder="username"
               disabled={isLoading}
               required
