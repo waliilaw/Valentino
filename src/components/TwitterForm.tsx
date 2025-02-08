@@ -11,14 +11,14 @@ interface TwitterFormProps {
 const categoryImages: Record<CategoryType, string> = {
   'Single for life': '/1.jpeg',
   'Marry ASAP': '/2.jpeg',
-  'You\'re cooked': '/3.jpeg',
+  "You're cooked": '/3.jpeg',
   'Just wait 10 Years': '/4.jpeg',
-  'You\'re Kissable': '/5.jpeg',
+  "You're Kissable": '/5.jpeg',
   'Kill Yourself': '/1.jpeg',
-  'You\'re NPC': '/2.jpeg',
+  "You're NPC": '/2.jpeg',
   'Start OnlyHugs': '/3.jpeg',
   'Friendzoned for Life': '/4.jpeg',
-  'You\'re Married': '/5.jpeg'
+  "You're Married": '/5.jpeg'
 }
 
 export function TwitterForm({ showHeading = true }: TwitterFormProps) {
@@ -81,7 +81,7 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
             {result.analysis.category}
           </h2>
           <p className="text-gray-600 italic px-4">
-            "{result.analysis.explanation}"
+            &ldquo;{result.analysis.explanation}&rdquo;
           </p>
         </div>
 
