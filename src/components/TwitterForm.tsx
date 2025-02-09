@@ -1,25 +1,29 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { TwitterAnalysis } from '@/types/twitter'
+import { TwitterAnalysis, TwitterStats } from '@/types/twitter'
 import Image from 'next/image'
 
 interface TwitterFormProps {
   showHeading?: boolean
 }
 
+interface TwitterResult {
+  stats: TwitterStats;
+  analysis: TwitterAnalysis;
+}
+
 export function TwitterForm({ showHeading = true }: TwitterFormProps) {
   const [username, setUsername] = useState('')
   const [loading, setLoading] = useState(false)
-  const [result, setResult] = useState<{ stats: any; analysis: TwitterAnalysis } | null>(null)
+  const [result, setResult] = useState<TwitterResult | null>(null)
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!username.trim()) return
-    
     setLoading(true)
-    setError(null)
+    setError('')
 
     try {
       const response = await fetch('/api/analyze', {
