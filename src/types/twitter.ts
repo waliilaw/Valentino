@@ -4,7 +4,7 @@ export type CategoryType =
   | 'You\'re cooked'
   | 'Just wait 10 Years'
   | 'You\'re Kissable'
-  | 'Kill Yourself'
+  | 'You need help'
   | 'You\'re NPC'
   | 'Start OnlyHugs'
   | 'Friendzoned for Life'
@@ -13,6 +13,7 @@ export type CategoryType =
 export interface TwitterAnalysis {
   category: CategoryType
   explanation: string
+  relationshipChance: number
 }
 
 export interface TwitterStats {
@@ -20,4 +21,6 @@ export interface TwitterStats {
   following: number
   posts: number
   username: string
+  profileImageUrl: string
+  recentTweets: string[]
 } 

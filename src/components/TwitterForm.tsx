@@ -9,16 +9,16 @@ interface TwitterFormProps {
 }
 
 const categoryImages: Record<CategoryType, string> = {
-  'Single for life': '/1.jpeg',
-  'Marry ASAP': '/2.jpeg',
-  "You're cooked": '/3.jpeg',
-  'Just wait 10 Years': '/4.jpeg',
-  "You're Kissable": '/5.jpeg',
-  'Kill Yourself': '/1.jpeg',
-  "You're NPC": '/2.jpeg',
-  'Start OnlyHugs': '/3.jpeg',
-  'Friendzoned for Life': '/4.jpeg',
-  "You're Married": '/5.jpeg'
+    'Single for life': '/1.jpeg',
+    'Marry ASAP': '/2.jpeg',
+    "You're cooked": '/3.jpeg',
+    'Just wait 10 Years': '/4.jpeg',
+    "You're Kissable": '/5.jpeg',
+    "You're NPC": '/2.jpeg',
+    'Start OnlyHugs': '/3.jpeg',
+    'Friendzoned for Life': '/4.jpeg',
+    "You're Married": '/5.jpeg',
+    'You need help': ''
 }
 
 export function TwitterForm({ showHeading = true }: TwitterFormProps) {
@@ -62,31 +62,56 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
 
   if (result) {
     return (
-      <div className="space-y-8 animate-fade-in">
-        {/* Category Image */}
+      <div className="space-y-6 animate-fade-in">
+        {/* Profile Image */}
         <div className="flex justify-center">
-          <div className="relative w-48 h-48 rounded-full overflow-hidden">
-            <Image
-              src={categoryImages[result.analysis.category]}
-              alt={result.analysis.category}
-              fill
-              className="object-cover rounded-full"
-            />
+          <div className="relative w-24 h-24 rounded-full overflow-hidden">
+            {result.stats.profileImageUrl ? (
+              <Image
+                src={result.stats.profileImageUrl}
+                alt={`${result.stats.username}'s profile`}
+                width={96}
+                height={96}
+                className="object-cover rounded-full"
+                unoptimized
+                priority
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                <span className="text-2xl">👤</span>
+              </div>
+            )}
           </div>
         </div>
 
-        {/* Profile Stats Section */}
-        <div className="text-center space-y-3">
-          <h2 className="text-2xl font-bold text-[#FF69B4]">
+        {/* Category and Explanation */}
+        <div className="text-center space-y-2">
+          <h2 className="text-xl font-bold text-[#FF69B4]">
             {result.analysis.category}
           </h2>
-          <p className="text-gray-600 italic px-4">
+          <p className="text-sm text-gray-600 italic px-4">
             &ldquo;{result.analysis.explanation}&rdquo;
           </p>
+          
+          {/* Relationship Chance Meter */}
+          <div className="mt-4 space-y-1">
+            <div className="text-sm font-medium text-gray-700">
+              Relationship Chance
+            </div>
+            <div className="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div 
+                className="absolute left-0 top-0 h-full bg-[#FF69B4] transition-all duration-1000 ease-out"
+                style={{ width: `${result.analysis.relationshipChance}%` }}
+              />
+            </div>
+            <div className="text-xl font-bold text-[#FF69B4]">
+              {result.analysis.relationshipChance}%
+            </div>
+          </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-4">
+        {/* Stats - Made Smaller */}
+        <div className="grid grid-cols-3 gap-2">
           {[
             { label: 'Followers', value: result.stats.followers },
             { label: 'Following', value: result.stats.following },
@@ -94,12 +119,14 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
           ].map(({ label, value }) => (
             <div 
               key={label} 
-              className="bg-white p-4 rounded-lg shadow-sm border border-[#FFB7C5] text-center"
+              className="bg-white p-2 rounded-lg shadow-sm border border-[#FFB7C5] text-center"
             >
-              <div className="font-bold text-xl text-[#FF69B4]">
+              <div className="font-bold text-base text-[#FF69B4]">
                 {value.toLocaleString()}
               </div>
-              <div className="text-sm text-gray-500">{label}</div>
+              <div className="text-xs text-gray-500">
+                {label}
+              </div>
             </div>
           ))}
         </div>
@@ -110,7 +137,7 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
             setResult(null)
             setUsername('')
           }}
-          className="w-full py-2 px-4 bg-[#FF69B4] hover:bg-[#FF1493] text-white rounded-md transition-colors duration-200"
+          className="w-full py-1.5 px-3 bg-[#FF69B4] hover:bg-[#FF1493] text-white rounded-md transition-colors duration-200 text-sm"
         >
           Try Another Profile
         </button>
