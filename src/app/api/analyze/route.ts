@@ -111,8 +111,8 @@ async function analyzeWithAI(stats: TwitterStats): Promise<TwitterAnalysis> {
 function getFallbackAnalysis(): TwitterAnalysis {
   const fallbackResponses: TwitterAnalysis[] = [
     {
-      category: "Single for life",
-      explanation: "",
+      category: "Just wait 10 Years",
+      explanation: "Try again (Just like you always do , you rat)",
       relationshipChance: 0,
     }
   ];
