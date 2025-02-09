@@ -1,5 +1,9 @@
 import { TwitterStats } from '@/types/twitter'
 
+interface Tweet {
+  text: string
+}
+
 export async function fetchTwitterStats(username: string): Promise<TwitterStats> {
   try {
     const cleanUsername = username.replace('@', '')
@@ -40,7 +44,7 @@ export async function fetchTwitterStats(username: string): Promise<TwitterStats>
 
       if (tweetsResponse.ok) {
         const tweetsData = await tweetsResponse.json()
-        recentTweets = tweetsData.slice(0, 5).map((tweet: any) => tweet.text || '')
+        recentTweets = tweetsData.slice(0, 5).map((tweet: Tweet) => tweet.text || '')
       }
     } catch (tweetError) {
       console.warn('Could not fetch tweets:', tweetError)

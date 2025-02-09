@@ -1,40 +1,24 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { CategoryType, TwitterAnalysis, TwitterStats } from '@/types/twitter'
+import { TwitterAnalysis } from '@/types/twitter'
 import Image from 'next/image'
 
 interface TwitterFormProps {
   showHeading?: boolean
 }
 
-const categoryImages: Record<CategoryType, string> = {
-    'Single for life': '/1.jpeg',
-    'Marry ASAP': '/2.jpeg',
-    "You're cooked": '/3.jpeg',
-    'Just wait 10 Years': '/4.jpeg',
-    "You're Kissable": '/5.jpeg',
-    "You're NPC": '/2.jpeg',
-    'Start OnlyHugs': '/3.jpeg',
-    'Friendzoned for Life': '/4.jpeg',
-    "You're Married": '/5.jpeg',
-    'You need help': ''
-}
-
 export function TwitterForm({ showHeading = true }: TwitterFormProps) {
   const [username, setUsername] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  const [result, setResult] = useState<{
-    stats: TwitterStats;
-    analysis: TwitterAnalysis;
-  } | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
+  const [result, setResult] = useState<{ stats: any; analysis: TwitterAnalysis } | null>(null)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
     if (!username.trim()) return
     
-    setIsLoading(true)
+    setLoading(true)
     setError(null)
 
     try {
@@ -56,7 +40,7 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong')
     } finally {
-      setIsLoading(false)
+      setLoading(false)
     }
   }
 
@@ -172,21 +156,21 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
               onChange={(e) => setUsername(e.target.value.replace('@', ''))}
               className="w-full pl-8 pr-4 py-2 border border-[#FFB7C5] rounded-md focus:ring-2 focus:ring-[#FF69B4] focus:border-[#FF69B4] transition-all duration-200 text-gray-900"
               placeholder="username"
-              disabled={isLoading}
+              disabled={loading}
               required
             />
           </div>
         </div>
         <button
           type="submit"
-          disabled={isLoading || !username.trim()}
+          disabled={loading || !username.trim()}
           className={`w-full py-2 px-4 rounded-md transition-all duration-200 flex items-center justify-center space-x-2
-            ${isLoading 
+            ${loading 
               ? 'bg-[#FFB7C5] cursor-not-allowed' 
               : 'bg-[#FF69B4] hover:bg-[#FF1493]'} 
             text-white font-medium`}
         >
-          {isLoading ? (
+          {loading ? (
             <>
               <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
