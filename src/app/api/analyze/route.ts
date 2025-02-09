@@ -29,21 +29,12 @@ async function analyzeWithAI(stats: TwitterStats): Promise<TwitterAnalysis> {
     - Tweet content
     - Social media behavior
 
-    Use these Gen Z terms (use at least 2)and word limit of not more than 50 words:
+    Use these Gen Z terms and word limit of not more than 50 words:
     - "negative rizz"
-    - "caught in 4k"
-    - "ain't no way fr fr"
     - "deadass"
     - "no cap"
-    - "touch grass"
-    - "ratio + L"
-    - "main character syndrome"
     - "skill issue"
-    - "npc behavior"
     - "mid"
-    - "based"
-    - "fr fr"
-    - "not the flex you think"
     - "crying in 144p"
 
     Choose ONE category (based on their L behavior):
@@ -51,17 +42,17 @@ async function analyzeWithAI(stats: TwitterStats): Promise<TwitterAnalysis> {
     - Marry ASAP
     - Just wait 10 Years
     - You're Kissable
-    - You're NPC
     - Start OnlyHugs
     - Friendzoned for Life
     - You're Married
+    
 
     Return a JSON with:
     1. Category
     2. BRUTAL roast (up to 40 words, make it personal and savage!)
     3. Relationship chance (1-100)
 
-    Example format:
+    Example format (dont use the example format , this is just for you to understand the format):
     {
       "category": "You're NPC",
       "explanation": "Bro's username screams 'mom picked it'! Negative rizz + ratio + touch grass fr fr! Your tweets got less engagement than a library's silence. Deadass caught in 4k with that default pfp! 💀",
@@ -120,19 +111,9 @@ async function analyzeWithAI(stats: TwitterStats): Promise<TwitterAnalysis> {
 function getFallbackAnalysis(): TwitterAnalysis {
   const fallbackResponses: TwitterAnalysis[] = [
     {
-      category: "You're NPC",
-      explanation: "Deadass got ratio'd by an AI! Your rizz levels are crying in 144p fr fr! Even your tweets need a tutorial mode. Touch grass bestie! 💀",
-      relationshipChance: 42
-    },
-    {
       category: "Single for life",
-      explanation: "Not even AI can help your negative rizz! Your profile screams 'main character syndrome' but you're just an NPC with a skill issue! 😭",
-      relationshipChance: 12
-    },
-    {
-      category: "Start OnlyHugs",
-      explanation: "Bro got caught in 4k with that profile! Your follow ratio is giving second-hand embarrassment fr fr! Not the flex you think it is! 🚫",
-      relationshipChance: 33
+      explanation: "",
+      relationshipChance: 0,
     }
   ];
 
