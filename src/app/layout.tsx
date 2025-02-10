@@ -19,8 +19,11 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Twitter Category Analyzer",
-  description: "Find out your Twitter category based on your stats!",
+  title: "Valentino",
+  description: "Guru",
+  icons :{
+    icon : "/favicon.ico",
+  }
 };
 
 export default function RootLayout({
