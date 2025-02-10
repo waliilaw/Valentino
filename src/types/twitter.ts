@@ -13,6 +13,7 @@ export type CategoryType =
 export interface TwitterAnalysis {
   category: CategoryType
   explanation: string
+  improvements: string[]
   relationshipChance: number
 }
 
