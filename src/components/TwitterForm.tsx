@@ -85,7 +85,7 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
         {/* Improvements Section */}
         <div className="space-y-2">
           <div className="text-sm font-medium text-gray-700 text-center">
-            How to Fix Your L's:
+            How to Fix Your L&apos;s:
           </div>
           <ul className="space-y-2">
             {result.analysis.improvements.map((improvement, index) => (
