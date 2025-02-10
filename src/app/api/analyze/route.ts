@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { fetchTwitterStats } from '@/utils/twitter'
-import { CategoryType, TwitterAnalysis, TwitterStats } from '@/types/twitter'
+import { TwitterAnalysis, TwitterStats } from '@/types/twitter'
 import { GoogleGenerativeAI } from '@google/generative-ai'
 
 // Initialize Gemini
@@ -75,7 +75,7 @@ this is just a example of what you returned for 'waliilaww' , it for your improv
 
 {okay so i tested you and this is what you returned for 'waliilaww' 
 [Bot - Negative Rizz 🚫🚫
-“No cap, your Twitter game is deadass mid. Zero rizz.”
+"No cap, your Twitter game is deadass mid. Zero rizz."
 How to Fix Your L's:
 •
 Waliilaww? More like Waliil NO.
@@ -108,7 +108,7 @@ make personal comments about their post and pfp
 
 see this si your 3rd response for 'waliilaww' 
 [Spammer Striked Out 🚫 发送
-“You're spamming your way to the Twitter graveyard, delete your posts before you get ghosted.”
+"You're spamming your way to the Twitter graveyard, delete your posts before you get ghosted."
 How to Fix Your L's:
 •
 Lose the spam, people don't care about your 100th retweet.
