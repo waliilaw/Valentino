@@ -80,21 +80,39 @@ export function TwitterForm({ showHeading = true }: TwitterFormProps) {
           <p className="text-sm text-gray-600 italic px-4">
             &ldquo;{result.analysis.explanation}&rdquo;
           </p>
-          
-          {/* Relationship Chance Meter */}
-          <div className="mt-4 space-y-1">
-            <div className="text-sm font-medium text-gray-700">
-              Relationship Chance
-            </div>
-            <div className="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-              <div 
-                className="absolute left-0 top-0 h-full bg-[#FF69B4] transition-all duration-1000 ease-out"
-                style={{ width: `${result.analysis.relationshipChance}%` }}
-              />
-            </div>
-            <div className="text-xl font-bold text-[#FF69B4]">
-              {result.analysis.relationshipChance}%
-            </div>
+        </div>
+
+        {/* Improvements Section */}
+        <div className="space-y-2">
+          <div className="text-sm font-medium text-gray-700 text-center">
+            How to Fix Your L's:
+          </div>
+          <ul className="space-y-2">
+            {result.analysis.improvements.map((improvement, index) => (
+              <li 
+                key={index}
+                className="text-xs text-gray-600 flex items-start gap-2 px-4"
+              >
+                <span className="text-[#FF69B4]">•</span>
+                <span>{improvement}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Relationship Chance Meter */}
+        <div className="mt-4 space-y-1">
+          <div className="text-sm font-medium text-gray-700">
+            Relationship Chance
+          </div>
+          <div className="relative w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div 
+              className="absolute left-0 top-0 h-full bg-[#FF69B4] transition-all duration-1000 ease-out"
+              style={{ width: `${result.analysis.relationshipChance}%` }}
+            />
+          </div>
+          <div className="text-xl font-bold text-[#FF69B4]">
+            {result.analysis.relationshipChance}%
           </div>
         </div>
 
