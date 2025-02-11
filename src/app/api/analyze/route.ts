@@ -59,18 +59,40 @@ IMPORTANT: Return ONLY a JSON object in this exact format (no markdown, no extra
 
 *dont copy paste this example , be creative depending upon the user *
 {
-  "category": "",
-  "explanation": "",
+  "category": "Love Language? Dry Texting 💬💀",
+  "explanation": "No cap, your tweets are drier than the Sahara.",
   "improvements": [
-    "",
-    "",
-    "",
-    ""
+    "Your bio is giving 'bot energy'. Fix it ASAP.",
+    "Tweet less about your gym grind, more about real thoughts.",
+    "Stop following 5000 people hoping for a follow back.",
+    "Engage with tweets like a human, not a spambot."
   ],
-  "relationshipChance": 
+  "relationshipChance": 37
 }
 
 DO NOT include any markdown formatting or additional text outside the JSON object. 
+
+
+this is a example of function , what i want for the points 
+
+  if (following > followers * 2) {
+    then the point should be like  "They're following way too many people with almost no one following back—desperation level 💀.";
+  } else if (followers> following * 5) {
+   then the point should be like "They barely follow anyone but have a high follower count. Someone thinks they're too famous.";
+  } else {
+    then the point should be like "Their following and follower count are kinda balanced, I guess.";
+  }
+
+
+if they have a profile pic  then the point should be like "They have a profile pic, so at least they’re not a bot."
+    if they dont have a profile pic then the point should be like "No profile picture? This screams catfish or bot vibes. 😭";
+
+  if thier posts > 500 then the point should be like "They tweet way too much, probably over-sharing every moment."
+  if thier posts < 10 then the point should be like "Their profile is drier than the Sahara, barely any tweets."
+
+    if their bio is peak cringe then the point should be like "Your bio is peak cringe, rewrite it before people block you."
+    if their bio is not peak cringe then the point should be like "Your bio is not peak cringe, you can do better."
+
 
 this is just a example of what you returned for 'waliilaww' , it for your improvement so you can do better for every username from now on 
 
@@ -144,27 +166,6 @@ there are false thing in there like the retweets part , the user'waliilaww' dont
 
 *Take your time as much as you can , DONT RUSH *
 
-this is a example of function , what i want for the points 
-
-  if (stats.following > stats.followers * 2) {
-    followerRatioComment = "They're following way too many people with almost no one following back—desperation level 💀.";
-  } else if (stats.followers > stats.following * 5) {
-    followerRatioComment = "They barely follow anyone but have a high follower count. Someone thinks they're too famous.";
-  } else {
-    followerRatioComment = "Their following and follower count are kinda balanced, I guess.";
-  }
-
-  let profilePicComment = stats.profileImageUrl
-    ? "They have a profile pic, so at least they’re not a bot."
-    : "No profile picture? This screams catfish or bot vibes. 😭";
-
-  let activityComment = stats.posts > 500
-    ? "They tweet way too much, probably over-sharing every moment."
-    : stats.posts < 10
-    ? "Their profile is drier than the Sahara, barely any tweets."
-    : "They tweet at a normal rate, nothing crazy.";
-
-
 
   `;
 
@@ -215,9 +216,12 @@ this is a example of function , what i want for the points
 function getFallbackAnalysis(): TwitterAnalysis {
   return {
     category: "Just wait 10 Years",
-    explanation: "Too many API calls , Try Again  (Just like you always do, you rat)",
+    explanation: "Try again (Just like you always do, you rat)",
     improvements: [
-     
+      "Your bio is peak cringe, rewrite it before people block you.",
+      "Your tweets are screaming 'pls notice me'—relax, bro.",
+      "You follow 1000 people but have 20 followers. Skill issue.",
+      "Drop the spammy posts, nobody cares about your 10th retweet today."
     ],
     relationshipChance: 37
   };
