@@ -203,12 +203,9 @@ this is a example of function , what i want for the points
 function getFallbackAnalysis(): TwitterAnalysis {
   return {
     category: "Just wait 10 Years",
-    explanation: "Try again (Just like you always do, you rat)",
+    explanation: "Too many API calls , Try Again (Just like you always do, you rat)",
     improvements: [
-      "Your bio is peak cringe, rewrite it before people block you.",
-      "Your tweets are screaming 'pls notice me'—relax, bro.",
-      "You follow 1000 people but have 20 followers. Skill issue.",
-      "Drop the spammy posts, nobody cares about your 10th retweet today."
+     
     ],
     relationshipChance: 37
   };
