@@ -32,8 +32,7 @@ Use these Gen Z terms (but don't overuse them):
 - "deadass"  
 - "no cap"  
 - "skill issue"  
-- "mid"  
-- "crying in 144p"  
+- "mid"   
 
 ### Your response should include:  
 
@@ -144,6 +143,29 @@ Engage with real people instead of acting like a bot.
 there are false thing in there like the retweets part , the user'waliilaww' dont even retweets , but you said about the reteweets part , try to be as accurate to the user as you can , just analize the pfp comment on that , analyze followers to following ratio comment on that  , just try to be more creative and brutakl with youyr answer , approx 1000 or more people are gonna use this , so you should be more creative and brutal , you can make it more personal and brutal 
 
 *Take your time as much as you can , DONT RUSH *
+
+this is a example of function , what i want for the points 
+
+  if (stats.following > stats.followers * 2) {
+    followerRatioComment = "They're following way too many people with almost no one following back—desperation level 💀.";
+  } else if (stats.followers > stats.following * 5) {
+    followerRatioComment = "They barely follow anyone but have a high follower count. Someone thinks they're too famous.";
+  } else {
+    followerRatioComment = "Their following and follower count are kinda balanced, I guess.";
+  }
+
+  let profilePicComment = stats.profileImageUrl
+    ? "They have a profile pic, so at least they’re not a bot."
+    : "No profile picture? This screams catfish or bot vibes. 😭";
+
+  let activityComment = stats.posts > 500
+    ? "They tweet way too much, probably over-sharing every moment."
+    : stats.posts < 10
+    ? "Their profile is drier than the Sahara, barely any tweets."
+    : "They tweet at a normal rate, nothing crazy.";
+
+
+
   `;
 
     const result = await model.generateContent({
