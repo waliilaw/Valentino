@@ -9,6 +9,7 @@ const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
 async function analyzeWithAI(stats: TwitterStats): Promise<TwitterAnalysis> {
   try {
+
     const prompt = `You're a Gen Z Love Guru, and you're here to guide them on improving their Twitter game and their love life. Given this Twitter profile:
 
 Username: ${stats.username}  
@@ -19,7 +20,6 @@ Stats:
 - ${stats.posts} posts of pure ${stats.posts > 1000 ? "spam" : "emptiness"}  
 
 Recent Tweets:  
-${stats.recentTweets.map((tweet, i) => `${i + 1}. "${tweet}"`).join('\n')}  
 
 Their behavior analysis:  
 - Username  
@@ -37,7 +37,7 @@ Use these Gen Z terms (but don't overuse them):
 
 ### Your response should include:  
 
-1. **A funny, savage heading** (Example: "Rizz-less Warriors 🏳️😔")  
+1. **A funny, savage heading** (Example: "Rizz-less Warriors 🏳️😔" *dont just copy paste this example , try to be creative and funny but not cringe )  
    - Make it **funny, NOT cringe**  
    - It should match their behavior  
 
@@ -46,7 +46,7 @@ Use these Gen Z terms (but don't overuse them):
 
 3. **Four specific tips on how they can improve their Twitter profile**  
    - These should **directly relate** to their username, tweets, bio, or social media behavior  
-   - Example tips:  
+   - Example tips:  *these are just example dont just copy paste , be creative , the reponse should be different depending upon the user*
      - "Your bio is peak cringe, rewrite it before people block you."  
      - "Your tweets are screaming 'pls notice me'—relax, bro."  
      - "You follow 1000 people but have 20 followers. Skill issue."  
@@ -57,6 +57,8 @@ Use these Gen Z terms (but don't overuse them):
    - If they're down bad, keep it low. If they have potential, be fair.  
 
 IMPORTANT: Return ONLY a JSON object in this exact format (no markdown, no extra text):
+
+*dont copy paste this example , be creative depending upon the user *
 {
   "category": "Love Language? Dry Texting 💬💀",
   "explanation": "No cap, your tweets are drier than the Sahara.",
@@ -123,6 +125,25 @@ Change your username, waliilaww sounds like a bot.
 excellent work , just make it more about relationship if you can , like give them explanation and solution that why are they single , you 3rd response is good , but you can do better , you can make it more personal and brutal , like you did for 'waliilaww' 
 
 
+so , i have noticed one thing about you , you just said this 
+{
+Lonely Potato 😂
+"No cap, your profile's as dry as a desert."
+How to Fix Your L's:
+•
+Your username's a snoozefest, come up with something catchy.
+•
+Your tweets are like watching grass grow—boring af.
+•
+Stop spamming posts, nobody cares about your endless retweets.
+•
+Engage with real people instead of acting like a bot.
+
+}
+
+there are false thing in there like the retweets part , the user'waliilaww' dont even retweets , but you said about the reteweets part , try to be as accurate to the user as you can , just analize the pfp comment on that , analyze followers to following ratio comment on that  , just try to be more creative and brutakl with youyr answer , approx 1000 or more people are gonna use this , so you should be more creative and brutal , you can make it more personal and brutal 
+
+*Take your time as much as you can , DONT RUSH *
   `;
 
     const result = await model.generateContent({
