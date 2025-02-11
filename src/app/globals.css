@@ -4,6 +4,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
 }
 
 @layer base {
@@ -29,8 +31,5 @@ body {
 @layer base {
   * {
     border-color: var(--border);
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }
