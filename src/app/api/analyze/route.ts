@@ -57,18 +57,6 @@ Use these Gen Z terms (but don't overuse them):
 
 IMPORTANT: Return ONLY a JSON object in this exact format (no markdown, no extra text):
 
-*dont copy paste this example , be creative depending upon the user *
-{
-  "category": "Love Language? Dry Texting 💬💀",
-  "explanation": "No cap, your tweets are drier than the Sahara.",
-  "improvements": [
-    "Your bio is giving 'bot energy'. Fix it ASAP.",
-    "Tweet less about your gym grind, more about real thoughts.",
-    "Stop following 5000 people hoping for a follow back.",
-    "Engage with tweets like a human, not a spambot."
-  ],
-  "relationshipChance": 37
-}
 
 DO NOT include any markdown formatting or additional text outside the JSON object. 
 
